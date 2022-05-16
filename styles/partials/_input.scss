@@ -1,0 +1,10 @@
+@use "./modules/" as *;
+
+.input {
+  @include flex;
+  text-align: center;
+
+  &__section {
+    width: calc(100% / 3);
+  }
+}

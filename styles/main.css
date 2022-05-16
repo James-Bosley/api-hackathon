@@ -1,0 +1,56 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.footer__attribution {
+  height: 6rem;
+}
+
+.input {
+  display: flex;
+  flex-direction: initial;
+  justify-content: initial;
+  align-items: initial;
+  flex-wrap: initial;
+  text-align: center;
+}
+.input__section {
+  width: 33.3333333333%;
+}
+
+.output {
+  display: flex;
+  flex-direction: initial;
+  justify-content: initial;
+  align-items: initial;
+  flex-wrap: initial;
+  text-align: center;
+}
+.output__section {
+  width: 33.3333333333%;
+}
+.output__title--hidden {
+  display: none;
+}/*# sourceMappingURL=main.css.map */

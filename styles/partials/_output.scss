@@ -1,0 +1,16 @@
+@use "./modules/" as *;
+
+.output {
+  @include flex;
+  text-align: center;
+
+  &__section {
+    width: calc(100% / 3);
+  }
+
+  &__title {
+    &--hidden {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <meta name="Author" content="James Bosley" />
+    <title>Hackathon</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__title">Defecit Calculator</h1>
+    </header>
+
+    <main>
+      <div class="input">
+        <section class="input__section input__section--calIn">
+          <h2 class="input__heading">Calories In</h2>
+          <form class="form--calIn">
+            <label for="calIn" class="form__label">What have you eaten?</label>
+            <textarea
+              name="calIn"
+              id="calIn"
+              cols="30"
+              rows="10"
+              class="form__textarea"
+              placeholder="Tell us what you have eaten today"
+            ></textarea>
+            <button type="submit">Add to List</button>
+          </form>
+
+          <div class="input__outlet-container">
+            <h2 class="input__heading">Food Items Consumed</h2>
+            <!-- Hook for dynamic content. -->
+            <ul class="input__outlet-list input__outlet--calIn"></ul>
+          </div>
+        </section>
+
+        <section class="input__section input__section--aboutYou">
+          <h2 class="input__heading">About You</h2>
+          <p class="input__text">Explain the site...</p>
+          <form class="form--aboutYou">
+            <label for="gender" class="form__label">Gender</label>
+            <select name="gender" id="gender" class="form__input">
+              <option value="" selected disabled></option>
+              <option value="f">Female</option>
+              <option value="m">Male</option>
+            </select>
+            <label for="age" class="form__label">Your Age</label>
+            <input name="age" type="number" class="form__input" />
+            <button type="submit">Update</button>
+          </form>
+
+          <div class="input__outlet-container">
+            <p class="input__outlet-text">
+              Based on the information you have provided, we estimate you need
+            </p>
+            <!-- Hook for dynamic content -->
+            <p class="input__outlet-text--highlight input__outlet--aboutYou">0</p>
+            <p class="input__outlet-text">
+              calories per day to maintain your weight. This number is deducted from your calorie
+              intake as well as any exercise!
+            </p>
+            <p class="input__outlet-text">
+              This is based on an average for your age group and gender. Individual calorie
+              requirements will vary.
+            </p>
+          </div>
+        </section>
+
+        <section class="input__section input__section--calOut">
+          <h2 class="input__heading">Calories Out</h2>
+          <form class="form--calOut">
+            <label for="calOut" class="form__label">How have you exercised?</label>
+            <textarea
+              name="calOut"
+              id="calOut"
+              cols="30"
+              rows="10"
+              class="form__textarea"
+              placeholder="Tell us about the exercise you have done today"
+            ></textarea>
+            <button type="submit">Add to List</button>
+          </form>
+
+          <div class="input__outlet-container">
+            <h2 class="input__heading">Exercise Completed</h2>
+            <!-- Hook for dynamic content. -->
+            <ul class="input__outlet-list input__outlet--calOut"></ul>
+          </div>
+        </section>
+      </div>
+
+      <div class="output">
+        <section class="output__section">
+          <h2 class="output__title">Total Calories Consumed</h2>
+          <p class="output__section--calIn"></p>
+        </section>
+
+        <section class="output__section">
+          <h2 class="output__title">
+            Total<span class="output__title--hidden">Surplus</span
+            ><span class="output__title--hidden">Defecit</span>
+          </h2>
+          <p class="output__section--total"></p>
+        </section>
+
+        <section class="output__section">
+          <h2 class="output__title">Total Extra Calories Burned</h2>
+          <p class="output__section--calOut"></p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <img src="./assets/nutritionix.png" alt="nutritionix logo" class="footer__attribution" />
+    </footer>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
+      type="text/javascript"
+    ></script>
+    <script src="./scripts/index.js" type="module"></script>
+  </body>
+</html>

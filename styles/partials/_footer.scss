@@ -1,0 +1,7 @@
+@use "./modules/" as *;
+
+.footer {
+  &__attribution {
+    height: 6rem;
+  }
+}

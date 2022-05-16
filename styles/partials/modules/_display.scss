@@ -1,0 +1,10 @@
+// Flex setup.
+// It can be called with as many arguments as required. They are in order of frequency of use.
+
+@mixin flex($justify: initial, $align: initial, $wrap: initial, $direction: initial) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
