@@ -1,27 +1,27 @@
 @font-face {
   font-family: "Oswald";
-  src: url("../../../assets/fonts/Oswald-ExtraLight.ttf");
+  src: url("~/../../assets/fonts/Oswald-ExtraLight.ttf");
   font-weight: 200;
   font-style: normal;
   font-display: fallback;
 }
 @font-face {
   font-family: "Oswald";
-  src: url("../../../assets/fonts/Oswald-Regular.ttf");
+  src: url("~/../../assets/fonts/Oswald-Regular.ttf");
   font-weight: 400;
   font-style: normal;
   font-display: fallback;
 }
 @font-face {
   font-family: "Quattrocento";
-  src: url("../../../assets/fonts/Quattrocento-Regular.ttf");
+  src: url("~/../../assets/fonts/Quattrocento-Regular.ttf");
   font-weight: 400;
   font-style: normal;
   font-display: fallback;
 }
 @font-face {
   font-family: "Quattrocento";
-  src: url("../../../assets/fonts/Quattrocento-Bold.ttf");
+  src: url("~/../../assets/fonts/Quattrocento-Bold.ttf");
   font-weight: 700;
   font-style: normal;
   font-display: fallback;
@@ -244,7 +244,7 @@ body {
 
 .list {
   margin: 1.6rem auto;
-  padding: 1.6rem;
+  padding: 0.8rem 1.6rem;
   height: 28rem;
   width: 80%;
   background-color: rgba(255, 255, 255, 0.3);
