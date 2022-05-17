@@ -1,4 +1,4 @@
-// @use "./typeface" as *;
+@use "./typeface" as *;
 
 *,
 *::before,
@@ -16,8 +16,7 @@ html {
 
 body {
   // Explicity sets typeface to match site style as default.
-
-  height: 100vh;
+  @include body-copy;
 }
 
 a {

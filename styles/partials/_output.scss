@@ -1,16 +1,189 @@
 @use "./modules/" as *;
 
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.6);
+    letter-spacing: 0.4rem;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shift-left-right {
+  0% {
+    left: 36%;
+  }
+  2% {
+    content: "> > > > >";
+  }
+  4% {
+    content: "> > > >";
+  }
+  6% {
+    content: "> > >";
+  }
+  8% {
+    content: "> >";
+  }
+  10% {
+    content: ">";
+    left: 28%;
+  }
+  20% {
+    content: "> >";
+  }
+  30% {
+    content: "> > >";
+  }
+  40% {
+    content: "> > > >";
+  }
+  50% {
+    content: "> > > > >";
+  }
+  60% {
+    content: "> > > > > >";
+    left: 28%;
+  }
+  100% {
+    left: 36%;
+  }
+}
+
+@keyframes shift-right-left {
+  0% {
+    right: 36%;
+  }
+  2% {
+    content: "< < < < <";
+  }
+  4% {
+    content: "< < < <";
+  }
+  6% {
+    content: "< < <";
+  }
+  8% {
+    content: "< <";
+  }
+  10% {
+    content: "<";
+    right: 28%;
+  }
+  20% {
+    content: "< <";
+  }
+  30% {
+    content: "< < <";
+  }
+  40% {
+    content: "< < < <";
+  }
+  50% {
+    content: "< < < < <";
+  }
+  60% {
+    content: "< < < < < <";
+    right: 28%;
+  }
+  100% {
+    right: 36%;
+  }
+}
+
 .output {
   @include flex;
   text-align: center;
+  margin-top: 1.6rem;
+  position: relative;
+  bottom: 6rem;
 
   &__section {
     width: calc(100% / 3);
+
+    &--total {
+      position: relative;
+      bottom: 2rem;
+    }
   }
 
   &__title {
+    @include sub-heading;
+    margin-bottom: 0.8rem;
+
     &--hidden {
       display: none;
+    }
+
+    &--defecit,
+    &--positive {
+      color: $positive-color;
+    }
+
+    &--surplus,
+    &--negative {
+      color: $negative-color;
+    }
+
+    &--calIn {
+      &::after {
+        content: "> > > > > >";
+        position: absolute;
+        animation: shift-left-right 6s ease-in-out forwards infinite;
+      }
+    }
+
+    &--calOut {
+      &::before {
+        content: "< < < < < <";
+        position: absolute;
+        animation: shift-right-left 6s ease-in-out forwards infinite;
+      }
+    }
+
+    &--total {
+      position: relative;
+      margin-bottom: 0.8rem;
+    }
+
+    &--total::before {
+      content: "> > >";
+      color: $primary-color-dark;
+      position: absolute;
+      bottom: -9rem;
+      left: 22%;
+      transform: rotate(-35deg);
+    }
+
+    &--total::after {
+      content: "< < <";
+      color: $primary-color-dark;
+      position: absolute;
+      bottom: -9rem;
+      right: 22%;
+      transform: rotate(35deg);
+    }
+  }
+
+  &__text {
+    @include body-copy-highlight;
+
+    &--positive {
+      animation: grow 2.4s ease-in-out forwards;
+      color: $positive-color;
+    }
+
+    &--negative {
+      animation: grow 2.4s ease-in-out forwards;
+      color: $negative-color;
+    }
+
+    &--total {
+      font-size: 4rem;
     }
   }
 }

@@ -1,7 +1,15 @@
 @use "./modules/" as *;
 
 .footer {
+  @include flex;
+  justify-content: flex-end;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
   &__attribution {
+    margin: 0.8rem;
     height: 6rem;
   }
 }

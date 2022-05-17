@@ -1,4 +1,5 @@
 @use "./modules/" as *;
+@use "sass:color";
 
 .input {
   @include flex;
@@ -6,5 +7,132 @@
 
   &__section {
     width: calc(100% / 3);
+
+    &--calIn,
+    &--calOut {
+      position: relative;
+      bottom: 6.4rem;
+    }
+
+    &--calIn {
+      border-right: 1px dotted grey;
+    }
+
+    &--calOut {
+      border-left: 1px dotted grey;
+    }
+  }
+
+  &__heading {
+    @include sub-heading;
+    font-size: 4.8rem;
+    margin-bottom: 0.8rem;
+  }
+}
+
+@keyframes error-flash {
+  0% {
+    background-color: #fff;
+  }
+  20% {
+    background-color: color.adjust($negative-color, $alpha: -0.6);
+  }
+  100% {
+    background-color: #fff;
+    border: 1px solid $negative-color;
+  }
+}
+
+.form {
+  @include flex(initial, initial, initial, column);
+  margin: 1.6rem;
+
+  &__label {
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+  }
+
+  &__input {
+    width: 25%;
+    padding: 1px 0.4rem;
+    margin: 0 auto;
+    margin-bottom: 1.2rem;
+    border-radius: 5px;
+
+    &--textarea {
+      @include body-copy;
+
+      resize: none;
+      padding: 0.8rem;
+      width: 90%;
+      height: 8rem;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &--error {
+      animation: error-flash 1.2s ease-out forwards;
+    }
+  }
+
+  &__button {
+    @include body-copy;
+    font-weight: 700;
+    width: 40%;
+    padding: 0.4rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    align-self: center;
+    border-radius: 5px;
+
+    &:hover {
+      box-shadow: 1px 2px 2px $primary-color-dark;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    &:active {
+      position: relative;
+      top: 2px;
+      left: 1px;
+      box-shadow: none;
+    }
+  }
+
+  &--aboutYou {
+    @include flex(space-evenly, initial, wrap);
+    width: 60%;
+    margin: 2.4rem auto;
+  }
+}
+
+.about {
+  &__text {
+    width: 75%;
+    margin: 0.8rem auto;
+    line-height: 2.4rem;
+
+    &--highlight {
+      @include body-copy-highlight;
+      margin: 1.6rem auto;
+    }
+  }
+}
+
+.list {
+  margin: 1.6rem auto;
+  padding: 1.6rem;
+  height: 28rem;
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.3);
+  overflow-y: scroll;
+  box-sizing: content-box;
+
+  &__heading {
+    @include sub-heading;
+  }
+
+  &__item {
+    margin: 0.8rem auto;
   }
 }

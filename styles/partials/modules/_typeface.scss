@@ -1,0 +1,70 @@
+@use "./colors" as *;
+
+// Import typefaces.
+
+@font-face {
+  font-family: "Oswald";
+  src: url("../../../assets/fonts/Oswald-ExtraLight.ttf");
+  font-weight: 200;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url("../../../assets/fonts/Oswald-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Quattrocento";
+  src: url("../../../assets/fonts/Quattrocento-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Quattrocento";
+  src: url("../../../assets/fonts/Quattrocento-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+}
+
+// Define fonts.
+
+$primary-font: "Quattrocento", "Times New Roman", serif;
+$header-font: "Oswald", "Verdana", sans-serif;
+
+// Fonts as mixins.
+
+@mixin main-heading($color: $primary-color-dark) {
+  font-family: $header-font;
+  color: $color;
+  font-weight: 200;
+  font-size: 8rem;
+}
+
+@mixin sub-heading($color: $primary-color-dark) {
+  font-family: $header-font;
+  color: $color;
+  font-weight: 200;
+  font-size: 4rem;
+}
+
+@mixin body-copy($color: $primary-color-dark) {
+  font-family: $primary-font;
+  color: $color;
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+@mixin body-copy-highlight($color: $primary-color-dark) {
+  font-family: $primary-font;
+  color: $color;
+  font-weight: 700;
+  font-size: 2.8rem;
+}

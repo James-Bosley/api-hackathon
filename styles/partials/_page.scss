@@ -1,0 +1,17 @@
+@use "./modules/" as *;
+
+// Styles the background of the whole page.
+
+body {
+  height: 100vh;
+  padding: 0.8rem 2.4rem;
+  overflow: hidden;
+
+  background: linear-gradient(
+    to bottom right,
+    rgba(60, 182, 253, 0.7),
+    rgb(237, 237, 237) 40%,
+    rgb(237, 237, 237) 60%,
+    rgba(60, 182, 253, 0.7)
+  );
+}
