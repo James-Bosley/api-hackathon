@@ -3,17 +3,23 @@ export const loadData = () => {
   let foodsConsumed = [];
   let exerciseCompleted = [];
   let user = {};
+  let nextIndex = { food: 0, exercise: 0 };
   if (localStorage.getItem("defecitData")) {
     const data = JSON.parse(localStorage.getItem("defecitData"));
     foodsConsumed = [...data.foodsConsumed];
     exerciseCompleted = [...data.exerciseCompleted];
     user = { ...data.user };
+    nextIndex = { ...data.nextIndex };
   }
-  return { foodsConsumed, exerciseCompleted, user };
+  return { foodsConsumed, exerciseCompleted, user, nextIndex };
 };
 
 // Stores current state in localStorage.
 export const storeData = data => {
+  if (!data) {
+    localStorage.removeItem("defecitData");
+    return;
+  }
   localStorage.setItem("defecitData", JSON.stringify(data));
 };
 
@@ -33,6 +39,7 @@ export const elementCreator = (type, className = "", textContent = "") => {
 
 // Returns recommened calorie intake by gender and age.
 export const getCalories = user => {
+  if (!user.age) return 0;
   if (user.age < 30) {
     return user.gender === "m" ? 2600 : 2200;
   }
@@ -40,6 +47,13 @@ export const getCalories = user => {
     return user.gender === "m" ? 2400 : 2000;
   }
   return user.gender === "m" ? 2200 : 1800;
+};
+
+export const getFatGrams = cals => {
+  const grams = Math.round(Math.abs(cals) / 9);
+  return cals < 0
+    ? `Equivalent to losing ${grams}g of body fat`
+    : `Equivalent to gaining ${grams}g of body fat`;
 };
 
 // Capitalises the first letter of a word, or recursively for every

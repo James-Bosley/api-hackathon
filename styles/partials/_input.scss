@@ -32,13 +32,14 @@
 
 @keyframes error-flash {
   0% {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid $negative-color;
   }
   20% {
     background-color: color.adjust($negative-color, $alpha: -0.6);
   }
   100% {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.3);
     border: 1px solid $negative-color;
   }
 }
@@ -56,7 +57,10 @@
     width: 25%;
     padding: 1px 0.4rem;
     margin: 0 auto;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.8rem;
+    background-color: rgba(255, 255, 255, 0.4);
+
+    border: none;
     border-radius: 5px;
 
     &--textarea {
@@ -66,6 +70,10 @@
       padding: 0.8rem;
       width: 90%;
       height: 8rem;
+
+      &::placeholder {
+        color: $primary-color-dark;
+      }
     }
 
     &:focus {
@@ -108,7 +116,7 @@
 
 .about {
   &__text {
-    width: 75%;
+    width: 78%;
     margin: 0.8rem auto;
     line-height: 2.4rem;
 
@@ -134,5 +142,10 @@
 
   &__item {
     margin: 0.8rem auto;
+  }
+
+  &__button {
+    color: $negative-color;
+    cursor: pointer;
   }
 }

@@ -1,5 +1,12 @@
 import { queryNutrients, queryExercise } from "./api.js";
-import { elementCreator, getCalories, capitalise, loadData, storeData } from "./helpers.js";
+import {
+  elementCreator,
+  getCalories,
+  getFatGrams,
+  capitalise,
+  loadData,
+  storeData,
+} from "./helpers.js";
 
 // Data initialisation.
 let data = loadData();
@@ -10,6 +17,16 @@ const calorieTotals = inputArr => {
     totalCals += food.calories;
   });
   return Math.floor(totalCals);
+};
+
+const removeItem = (type, id) => {
+  if (type === "food") {
+    data.foodsConsumed = data.foodsConsumed.filter(food => food.id !== id);
+    displayFood(data.foodsConsumed);
+    return;
+  }
+  data.exerciseCompleted = data.exerciseCompleted.filter(activity => activity.id !== id);
+  displayExercise(data.exerciseCompleted);
 };
 
 // DOM manipulators.
@@ -57,6 +74,7 @@ const displayCalories = () => {
 
   const calorieCalculation = caloriesIn - caloriesOut - getCalories(data.user);
   const total = document.querySelector(".output--total");
+  total.setAttribute("title", getFatGrams(calorieCalculation));
   total.innerText = Math.abs(calorieCalculation);
   totalStyling(calorieCalculation);
 
@@ -77,6 +95,13 @@ const displayFood = arr => {
     )} calories`;
     listItem.appendChild(text);
 
+    const removebtn = elementCreator("sup", "list__button", " x");
+    removebtn.addEventListener("click", event => {
+      event.preventDefault();
+      removeItem("food", food.id);
+    });
+    text.appendChild(removebtn);
+
     listOutlet.appendChild(listItem);
   });
 
@@ -96,6 +121,13 @@ const displayExercise = arr => {
       activity.calories
     )} calories`;
     listItem.appendChild(text);
+
+    const removebtn = elementCreator("sup", "list__button", " x");
+    removebtn.addEventListener("click", event => {
+      event.preventDefault();
+      removeItem("exercise", activity.id);
+    });
+    text.appendChild(removebtn);
 
     listOutlet.appendChild(listItem);
   });
@@ -140,6 +172,8 @@ calorieIntakeForm.addEventListener("submit", async event => {
 
   const foods = await queryNutrients(event.target.calIn.value);
   foods.forEach(food => {
+    food.id = data.nextIndex.food;
+    data.nextIndex.food++;
     data.foodsConsumed.push(food);
   });
 
@@ -162,12 +196,22 @@ calorieBurnedForm.addEventListener("submit", async event => {
   }
   const exercise = await queryExercise(event.target.calOut.value);
   exercise.forEach(activity => {
-    // Add the item to the consumed foods array.
+    activity.id = data.nextIndex.exercise;
+    data.nextIndex.exercise++;
     data.exerciseCompleted.push(activity);
   });
 
   displayExercise(data.exerciseCompleted);
   event.target.calOut.value = "";
+});
+
+// Clears all data and reloads.
+const clearBtn = document.querySelector(".form__button--clear");
+clearBtn.addEventListener("click", () => {
+  console.log("DONE");
+  storeData();
+  data = loadData();
+  location.reload();
 });
 
 displayFood(data.foodsConsumed);

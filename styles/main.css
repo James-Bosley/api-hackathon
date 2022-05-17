@@ -125,26 +125,28 @@ body {
 
 @-webkit-keyframes error-flash {
   0% {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid #ff3019;
   }
   20% {
     background-color: rgba(255, 48, 25, 0.4);
   }
   100% {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.3);
     border: 1px solid #ff3019;
   }
 }
 
 @keyframes error-flash {
   0% {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid #ff3019;
   }
   20% {
     background-color: rgba(255, 48, 25, 0.4);
   }
   100% {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.3);
     border: 1px solid #ff3019;
   }
 }
@@ -164,7 +166,9 @@ body {
   width: 25%;
   padding: 1px 0.4rem;
   margin: 0 auto;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.8rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
   border-radius: 5px;
 }
 .form__input--textarea {
@@ -176,6 +180,15 @@ body {
   padding: 0.8rem;
   width: 90%;
   height: 8rem;
+}
+.form__input--textarea::-moz-placeholder {
+  color: #0f0f0f;
+}
+.form__input--textarea:-ms-input-placeholder {
+  color: #0f0f0f;
+}
+.form__input--textarea::placeholder {
+  color: #0f0f0f;
 }
 .form__input:focus {
   outline: none;
@@ -217,7 +230,7 @@ body {
 }
 
 .about__text {
-  width: 75%;
+  width: 78%;
   margin: 0.8rem auto;
   line-height: 2.4rem;
 }
@@ -246,6 +259,10 @@ body {
 }
 .list__item {
   margin: 0.8rem auto;
+}
+.list__button {
+  color: #ff3019;
+  cursor: pointer;
 }
 
 @-webkit-keyframes grow {
@@ -517,4 +534,5 @@ body {
 }
 .output__text--total {
   font-size: 4rem;
+  cursor: pointer;
 }/*# sourceMappingURL=main.css.map */

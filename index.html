@@ -7,14 +7,14 @@
     <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="./styles/main.css" />
     <meta name="Author" content="James Bosley" />
-    <title>CalorieMate</title>
+    <title>MyCalorieMate</title>
   </head>
   <body>
     <header class="header">
       <h1 class="header__title">
-        <span class="header__title--highlight">C</span>alorie<span class="header__title--highlight"
-          >M</span
-        >ate
+        <span class="header__title--highlight">M</span>y<span class="header__title--highlight"
+          >C</span
+        >alorie<span class="header__title--highlight">M</span>ate
       </h1>
     </header>
 
@@ -45,12 +45,13 @@
 
         <section class="input__section input__section--aboutYou">
           <p class="about__text">
-            Dietitians around the world recommend a calorie defecit as the only guaranteed method of
-            losing weight. This means consuming less calories than you use.
+            Dietitians around the world will tell you a calorie defecit is the only guaranteed
+            method of losing weight. This means consuming less calories than you use.
           </p>
           <p class="about__text">
-            Tell us a little about yourself below and update the site with what you eat and what
-            excercise you have done, and we will tell you if you've likely lost weight today!
+            Tell us a little about yourself below and update the lists with what you have eaten and
+            what excercise you have done.<br />
+            Then check below if you've likely lost weight today!
           </p>
           <h2 class="input__heading">About You</h2>
 
@@ -62,8 +63,9 @@
               <option value="m">Male</option>
             </select>
             <label for="age" class="form__label">Age</label>
-            <input name="age" type="number" class="form__input" />
+            <input name="age" type="number" class="form__input" min="18" />
             <button type="submit" class="form__button">Update</button>
+            <button class="form__button form__button--clear">Clear All</button>
           </form>
 
           <div class="about__container">
